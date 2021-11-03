@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+.navOptions {
+  color: #19063d;
+}
+
+.navOption {
+  margin: 0 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+}

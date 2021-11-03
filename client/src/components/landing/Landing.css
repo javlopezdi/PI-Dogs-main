@@ -1,0 +1,40 @@
+.landing {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.landingFirstColumn {
+  align-self: center;
+}
+
+.landingTitle {
+  margin-top: 0;
+  color: #19063d;
+  font-size: 6rem;
+}
+
+.landingSubtitle {
+  margin: 8rem 0;
+}
+
+.startButton {
+  text-decoration: none;
+  color: white;
+  background-color: #703edb;
+  border: 2px solid #703edb;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  box-shadow: 5px 5px 5px #888888;
+  font-weight: bold;
+}
+
+.landingSecondColumn {
+  align-self: center;
+}
+
+.landingImage {
+  width: 100%;
+  height: auto;
+}

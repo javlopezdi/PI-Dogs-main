@@ -1,0 +1,10 @@
+.pageController {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pageOption.checked {
+  background-color: blue;
+}
