@@ -16,18 +16,33 @@
 
 .landingSubtitle {
   margin: 8rem 0;
+  font-size: 1.2rem;
+}
+
+.landingButtonContainer {
+  width: 20rem;
+  margin: 0 auto;
 }
 
 .startButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   text-decoration: none;
   color: white;
   background-color: #703edb;
   border: 2px solid #703edb;
   border-radius: 50px;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   box-shadow: 5px 5px 5px #888888;
   font-weight: bold;
+  transition-duration: 300ms;
+}
+
+.startButton:hover {
+  transform: translateY(-5px);
+  opacity: 0.95;
 }
 
 .landingSecondColumn {

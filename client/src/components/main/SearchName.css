@@ -1,0 +1,35 @@
+.searchName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchNameInput {
+  padding: 0.46rem 0.6rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 10px;
+  transition-duration: 200ms;
+}
+
+.searchNameInput:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.searchNameButton {
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  background: none;
+  border: none;
+  background-color: #703edb;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition-duration: 300ms;
+}
+
+.searchNameButton:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}

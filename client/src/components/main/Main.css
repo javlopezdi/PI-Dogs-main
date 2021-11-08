@@ -1,4 +1,19 @@
+.mainContainer {
+  height: 67vh;
+}
+
 .dogCardsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 32vh 32vh;
+  column-gap: 1vw;
+  row-gap: 3vh;
+}
+
+.sadDogContainer {
+  margin-top: 10rem;
+}
+
+.sadDogText {
+  font-size: x-large;
 }

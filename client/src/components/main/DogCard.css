@@ -1,4 +1,104 @@
-.dogCardImage {
+.dogCard {
+  text-decoration: none;
+  /* color: white; */
+  color: rgba(25, 6, 61, 1);
+  box-shadow: 5px 5px 5px #bbb;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgba(25, 6, 61, 1); */
+  position: relative;
+  transition: 0.4s ease-out;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.dogCardImageContainer {
   width: 100%;
-  height: auto;
+  height: 100%;
+  position: absolute;
+}
+
+.dogCardFrontContent {
+  position: relative;
+  bottom: 20%;
+  /* bottom: 40%; */
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.8rem;
+  padding-bottom: 4rem;
+  color: white;
+}
+
+.dogCardFrontName {
+  font-weight: bold;
+  font-size: large;
+}
+
+.dogCardFrontWeight,
+.dogCardFrontTemperament {
+  margin: 0.3rem 0;
+}
+
+.dogCardImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dogCard:hover {
+  transform: translateY(-10px);
+}
+
+.dogCardBackContent {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  transition: 0.4s ease-out;
+  opacity: 0;
+  background-color: rgba(25, 6, 61, 0.8);
+  color: white;
+}
+
+.dogCardBackContent:hover {
+  opacity: 1;
+}
+
+.dogCardBackContentInside {
+  padding: 0 1rem;
+}
+
+.dogInfo {
+  height: 14rem;
+}
+
+.detailsButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+  color: white;
+  background-color: #ff792c;
+  border-radius: 50px;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  transition-duration: 300ms;
+}
+
+.detailsButton:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.dogCardBackName {
+  font-size: x-large;
+}
+
+.dogCardBackWeight,
+.dogCardBackTemperament {
+  font-size: larger;
 }

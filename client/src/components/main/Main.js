@@ -5,8 +5,10 @@ import './Main.css';
 import DogCard from './DogCard';
 import PageController from './PageController';
 import DisplayController from './DisplayController';
+import SadDog from './SadDog.png';
+import Spinner from '../utils/Spinner';
 
-const Main = ({ fetchBreeds, pageNumber, displayedBreeds }) => {
+export const Main = ({ breeds, fetchBreeds, pageNumber, displayedBreeds }) => {
   useEffect(() => {
     if (!displayedBreeds.length) fetchBreeds();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -39,8 +41,21 @@ const Main = ({ fetchBreeds, pageNumber, displayedBreeds }) => {
   return (
     <div>
       <DisplayController />
-      <div className="dogCardsGrid">
-        {displayedBreeds.length && renderDogCards(displayedBreeds)}
+      <div className="mainContainer">
+        {breeds.length ? (
+          displayedBreeds.length ? (
+            <div className="dogCardsGrid">
+              {displayedBreeds.length && renderDogCards(displayedBreeds)}
+            </div>
+          ) : (
+            <div className="sadDogContainer">
+              <img className="sadDogImage" alt="Sad dog" src={SadDog} />
+              <div className="sadDogText">Sorry, we could not find any dog</div>
+            </div>
+          )
+        ) : (
+          <Spinner />
+        )}
       </div>
       <PageController />
     </div>
@@ -49,8 +64,9 @@ const Main = ({ fetchBreeds, pageNumber, displayedBreeds }) => {
 
 const mapStateToProps = (state) => {
   return {
+    breeds: Object.keys(state.breeds),
     displayedBreeds: state.displayedBreeds.displayedBreeds,
-    pageNumber: state.pageNumber,
+    pageNumber: state.displayedBreeds.pageNumber,
   };
 };
 

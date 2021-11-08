@@ -9,6 +9,8 @@ import {
   FETCH_BREED,
   CREATE_BREED,
   FILTER_BY_ORIGIN,
+  CLEAN_BREED,
+  SET_IS_SUCCESS_MODAL_OPEN,
 } from './types';
 import dogsApi from '../apis/dogsApi';
 import history from '../history';
@@ -21,6 +23,12 @@ export const fetchBreeds = () => async (dispatch, getState) => {
 export const fetchBreed = (id) => async (dispatch) => {
   const { data } = await dogsApi.get(`/dogs/${id}`);
   dispatch({ type: FETCH_BREED, payload: data });
+};
+
+export const cleanBreed = () => {
+  return {
+    type: CLEAN_BREED,
+  };
 };
 
 export const fetchTemperaments = () => async (dispatch) => {
@@ -94,5 +102,13 @@ export const filterByOrigin = (origin) => (dispatch, getState) => {
 export const createBreed = (input) => async (dispatch) => {
   const { data } = await dogsApi.post('/dog', input);
   dispatch({ type: CREATE_BREED, payload: data });
-  history.push('/dogs');
+  // history.push('/dogs');
+};
+
+export const setIsSuccessModalOpen = (isSuccessModalOpen) => (dispatch) => {
+  dispatch({
+    type: SET_IS_SUCCESS_MODAL_OPEN,
+    payload: isSuccessModalOpen,
+  });
+  if (!isSuccessModalOpen) history.push('/dogs');
 };

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchTemperaments, filterByTemperament } from '../../actions';
+import './TemperFilter.css';
 
 const TemperFilter = ({
   temperaments,
@@ -17,9 +18,13 @@ const TemperFilter = ({
   };
 
   return (
-    <div>
-      <label>Filter by temperament: </label>
-      <select defaultValue={chosenTemperament} onChange={handleChange}>
+    <div className="temperFilter">
+      <label className="temperFilterLabel">Filter by temperament: </label>
+      <select
+        className="temperFilterSelect"
+        defaultValue={chosenTemperament}
+        onChange={handleChange}
+      >
         <option value="All">All</option>
         {temperaments.map((temperament, index) => {
           return (

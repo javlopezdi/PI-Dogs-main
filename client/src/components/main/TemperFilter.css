@@ -1,0 +1,16 @@
+.temperFilterLabel {
+  padding: 0.46rem 0.6rem;
+  font-size: 1rem;
+}
+
+.temperFilterSelect {
+  padding: 0.5rem 0.6rem;
+  font-size: 1rem;
+  width: 10rem;
+  border-radius: 10px;
+  transition-duration: 200ms;
+}
+
+.temperFilterSelect:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}

@@ -1,0 +1,12 @@
+.displayController {
+  padding: 0rem 1.5rem 0.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  /* background-color: rgba(46, 17, 99, 0.04); */
+  border-radius: 10px;
+}
+
+.displayOptionsContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+}

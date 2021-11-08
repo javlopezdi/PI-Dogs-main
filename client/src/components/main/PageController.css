@@ -3,8 +3,25 @@
   gap: 0.2rem;
   justify-content: center;
   margin-top: 2rem;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 3%;
+}
+
+.pageOption {
+  /* padding: 0.3rem 0; */
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-weight: bold;
 }
 
 .pageOption.checked {
-  background-color: blue;
+  background-color: #703edb;
+  color: white;
 }

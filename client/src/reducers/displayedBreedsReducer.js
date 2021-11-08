@@ -7,15 +7,19 @@ import {
   CREATE_BREED,
   FETCH_TEMPERAMENTS,
   FILTER_BY_ORIGIN,
+  SET_PAGE,
+  SET_IS_SUCCESS_MODAL_OPEN,
 } from '../actions/types';
 
 const INITIAL_STATE = {
+  pageNumber: 1,
   displayedBreeds: [],
   temperaments: [],
   orderOption: 0,
   originOption: 'All',
   temperamentOption: 'All',
   searchedName: '',
+  isSuccessModalOpen: false,
 };
 
 const sortByName = (displayedBreeds, payload) => {
@@ -34,9 +38,21 @@ const sortByName = (displayedBreeds, payload) => {
 
 const sortByWeight = (displayedBreeds, payload) => {
   return displayedBreeds.sort((a, b) => {
+    const minWeightA = parseInt(a.weight.split(' ')[0]);
+    const minWeightB = parseInt(b.weight.split(' ')[0]);
+    if (isNaN(minWeightA)) return 1;
+    if (isNaN(minWeightB)) return -1;
     const maxWeightA = parseInt(a.weight.split(' ')[2]);
     const maxWeightB = parseInt(b.weight.split(' ')[2]);
-    return payload ? maxWeightA - maxWeightB : maxWeightB - maxWeightA;
+    let meanWeightA = 0;
+    let meanWeightB = 0;
+    isNaN(maxWeightA)
+      ? (meanWeightA = minWeightA)
+      : (meanWeightA = (maxWeightA + minWeightA) / 2);
+    isNaN(maxWeightB)
+      ? (meanWeightB = minWeightB)
+      : (meanWeightB = (maxWeightB + minWeightB) / 2);
+    return payload ? meanWeightA - meanWeightB : meanWeightB - meanWeightA;
   });
 };
 
@@ -82,6 +98,8 @@ const applyCurrentSort = (filteredBreeds, orderOption) => {
 
 const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
   let displayedBreeds = action.payload?.displayedBreeds;
+  let numberOfPages = 0;
+  let pageNumber = state.pageNumber || 1;
   switch (action.type) {
     case FETCH_TEMPERAMENTS:
       return {
@@ -89,6 +107,7 @@ const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
         temperaments: [...action.payload],
       };
     case FETCH_BREEDS:
+      action.payload = sortByName(action.payload, true);
       return {
         ...state,
         displayedBreeds: action.payload,
@@ -97,6 +116,7 @@ const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         displayedBreeds: [...state.displayedBreeds, action.payload],
+        isSuccessModalOpen: true,
       };
     case ORDER_BY_NAME:
       return {
@@ -122,10 +142,13 @@ const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
         displayedBreeds,
         state.searchedName
       );
+      numberOfPages = Math.ceil(displayedBreeds.length / 8);
+      if (pageNumber > numberOfPages) pageNumber = numberOfPages;
       return {
         ...state,
         displayedBreeds: [...displayedBreeds],
         temperamentOption: action.payload.temperament,
+        pageNumber,
       };
     case FILTER_BY_ORIGIN:
       displayedBreeds = applyCurrentSort(displayedBreeds, state.orderOption);
@@ -137,10 +160,13 @@ const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
         displayedBreeds,
         state.temperamentOption
       );
+      numberOfPages = Math.ceil(displayedBreeds.length / 8);
+      if (pageNumber > numberOfPages) pageNumber = numberOfPages;
       return {
         ...state,
         displayedBreeds: [...displayedBreeds],
         originOption: action.payload.origin,
+        pageNumber,
       };
     case SEARCH_BY_NAME:
       displayedBreeds = applyCurrentSort(displayedBreeds, state.orderOption);
@@ -152,10 +178,24 @@ const displayedBreedsReducer = (state = INITIAL_STATE, action) => {
         displayedBreeds,
         state.temperamentOption
       );
+      numberOfPages = Math.ceil(displayedBreeds.length / 8);
+      if (pageNumber > numberOfPages && numberOfPages !== 0)
+        pageNumber = numberOfPages;
       return {
         ...state,
         displayedBreeds: [...displayedBreeds],
         searchedName: action.payload.name,
+        pageNumber,
+      };
+    case SET_PAGE:
+      return {
+        ...state,
+        pageNumber: action.payload,
+      };
+    case SET_IS_SUCCESS_MODAL_OPEN:
+      return {
+        ...state,
+        isSuccessModalOpen: action.payload,
       };
     default:
       return state;

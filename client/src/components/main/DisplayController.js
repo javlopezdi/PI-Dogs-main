@@ -1,16 +1,17 @@
 import React from 'react';
-import SearchName from './SearchName';
 import TemperFilter from './TemperFilter';
 import OriginFilter from './OriginFilter';
 import Sorter from './Sorter';
+import './DisplayController.css';
 
 const DisplayController = () => {
   return (
-    <div>
-      <SearchName />
-      <Sorter />
-      <TemperFilter />
-      <OriginFilter />
+    <div className="displayController">
+      <div className="displayOptionsContainer">
+        <Sorter />
+        <TemperFilter />
+        <OriginFilter />
+      </div>
     </div>
   );
 };

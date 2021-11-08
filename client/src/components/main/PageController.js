@@ -26,7 +26,7 @@ const PageController = ({ pageNumber, setPage, numberOfBreeds }) => {
 const mapStateToProps = (state) => {
   return {
     numberOfBreeds: state.displayedBreeds.displayedBreeds.length,
-    pageNumber: state.pageNumber,
+    pageNumber: state.displayedBreeds.pageNumber,
   };
 };
 

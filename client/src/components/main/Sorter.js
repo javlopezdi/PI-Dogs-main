@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { orderByName, orderByWeight } from '../../actions';
+import './Sorter.css';
 
 const orderNames = [
-  'Order A-Z',
-  'Order Z-A',
+  'Name A-Z',
+  'Name Z-A',
   'Weight low to high',
   'Weight high to low',
 ];
@@ -28,9 +29,13 @@ const Sorter = ({ orderOption, orderByName, orderByWeight }) => {
   };
 
   return (
-    <div>
-      <label>Sort by: </label>
-      <select defaultValue={orderOption} onChange={handleChange}>
+    <div className="sorter">
+      <label className="sorterLabel">Sort by: </label>
+      <select
+        className="sorterSelect"
+        defaultValue={orderOption}
+        onChange={handleChange}
+      >
         {orderNames.map((option, index) => {
           return (
             <option key={index} value={index}>
