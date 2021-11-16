@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5344984e.chunk.css",
+    "main.js": "/static/js/main.80ae4dc5.chunk.js",
+    "main.js.map": "/static/js/main.80ae4dc5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.437acefb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.437acefb.js.map",
+    "static/js/2.7eb8e5dd.chunk.js": "/static/js/2.7eb8e5dd.chunk.js",
+    "static/js/2.7eb8e5dd.chunk.js.map": "/static/js/2.7eb8e5dd.chunk.js.map",
+    "static/js/3.f8ae84ca.chunk.js": "/static/js/3.f8ae84ca.chunk.js",
+    "static/js/3.f8ae84ca.chunk.js.map": "/static/js/3.f8ae84ca.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.5344984e.chunk.css.map": "/static/css/main.5344984e.chunk.css.map",
+    "static/js/2.7eb8e5dd.chunk.js.LICENSE.txt": "/static/js/2.7eb8e5dd.chunk.js.LICENSE.txt",
+    "static/media/LandingDog.b249f844.png": "/static/media/LandingDog.b249f844.png",
+    "static/media/SadDog.71cffe89.png": "/static/media/SadDog.71cffe89.png",
+    "static/media/SuccessModalDog.9480c1c8.jpg": "/static/media/SuccessModalDog.9480c1c8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.437acefb.js",
+    "static/js/2.7eb8e5dd.chunk.js",
+    "static/css/main.5344984e.chunk.css",
+    "static/js/main.80ae4dc5.chunk.js"
+  ]
+}

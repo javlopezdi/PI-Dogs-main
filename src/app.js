@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const { dogs, temperaments, dog } = require('./routes/index.js');
+const path = require('path');
 
 require('./db.js');
 
@@ -24,9 +25,16 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/dogs', dogs);
-server.use('/temperaments', temperaments);
-server.use('/dog', dog);
+server.use('/api/dogs', dogs);
+server.use('/api/temperaments', temperaments);
+server.use('/api/dog', dog);
+
+// Send to Front if route does not match
+server.use(express.static(path.join(__dirname, '../client/build')));
+
+server.get('*', (req, res) => {
+  return res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 // Error catching endware.
 server.use((err, req, res, next) => {
