@@ -83,6 +83,10 @@ export const NewBreed = ({
         tempErrors.maxLifeSpan ||
         'Must be greater or equal than Minimum Life Span';
     }
+    if (input.temperament.length > 3) {
+      tempErrors.temperament =
+        tempErrors.temperament || 'Must have less than 4 temperaments';
+    }
     setErrors({ ...tempErrors });
     return !Object.values(tempErrors).some((error) => error.length > 0);
   };
@@ -255,6 +259,7 @@ export const NewBreed = ({
           <div className="wholeInputContainer">
             <label>Add Temperaments</label>
             <select
+              disabled={input.temperament.length >= 3}
               onFocus={handleFocus}
               name="temperament"
               onChange={handleChange}
